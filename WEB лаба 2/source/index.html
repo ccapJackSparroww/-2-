@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="icon" href="../images/icon.png">
+    <title>Жіночий одяг</title>
+</head>
+<body>
+    
+    <!--bootstraaaaaaaaaaaaaaaaaaaaaaaaaaaap-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5d2e5;">
+        <a class="navbar-brand hover-logo" href="index.html">
+            <img src="../images/icon.png" style="border-radius: 50%;" width="30" height="30" alt="">
+        </a>
+
+        <a class="navbar-brand" href="index.html">Woman Clothes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Головна<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <dialog id="dialog" class="nonMod">
+        <!--ця штука з'явиться знову доки не прийняти розсилку (доки значення ключа subscriptionAccepted дорівнює false),
+        якщо в браузері через inspect element обрати application,зайти в local storage, знайти змінну subscriptionAccepted і видалити її
+        (принаймні в OperaGX так)-->
+        <!--цей діалог - не модальний-->
+        <p>Бажаєте підписатись на наші листи?</p>
+        <form class="modalForm">
+            <button id="submit" value="close" onclick="acceptSubscription()">Так</button>
+            <button id="close" value="close" formmethod="dialog">Ні</button>
+        </form>
+    </dialog>
+
+    <dialog id="modal">
+        <!--а ось цей діалог - модальний (промокод для свого сайту рахується як реклама)-->
+        <p>Пропонуємо вам знижку 10% на наступне замовлення.</p>
+        <p style="margin: auto;">Використайте промокод minus10</p>
+        <form class="modalForm">
+            <p id="fivesec" style="margin: auto;" class="shown">Кнопка OK з'явиться через 5 секунд</p>
+            <button id="close" value="close" formmethod="dialog" class="hidden">OK</button>
+        </form>
+    </dialog>
+
+    <div id="filters">
+        <label for="filterSelect">Виберіть фільтр:</label>
+        <select id="filterSelect" onchange="loadClothes()">
+            <option value="all">Усе</option>
+            <option value="hat">Капелюхи</option>
+            <option value="dresses">Сукні</option>
+            <option value="tops">Верхній одяг</option>
+            <option value="shoes">Взуття</option>
+            <!-- опції фільтрів  -->
+        </select>
+    </div>
+
+    <!-- елементи в контейнері стилізовані за допомогою "display: flex;" , тому, незалежно від їхньої кількості або приближення,
+        вони будуть адекватно центруватись та розподілятись. Щоб перевірити, достатньо змінити масштаб сайту в браузері-->
+    <div id="clothes-container"></div>
+
+    
+    <script defer src="../scripts/script.js"></script>
+
+</body>
+</html>
